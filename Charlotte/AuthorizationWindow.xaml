@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Charlotte"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280">
+        Title="MainWindow" Height="720" Width="1280"
+        WindowState="Maximized">
     <Window.Background>
     <ImageBrush TileMode="None">
         <ImageBrush.ImageSource>
@@ -35,9 +36,9 @@
             <PasswordBox Height="50" Width="600" x:Name="passwordBox" FontSize="36" />
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="Войти" FontSize="34" Background="White"  FontFamily="Bahnschrift" Height="50" Width="100" x:Name="SignInButton"></Button>
+            <Button Content="Войти" FontSize="34" Background="White"  FontFamily="Bahnschrift" Height="50" Width="100" x:Name="SignInButton" Click="SignInBtnClick"></Button>
             <Separator Opacity="0" Width="100"></Separator>
-            <Button Content="Регистрация" FontSize="34" Background="White"  FontFamily="Bahnschrift" Height="50" x:Name="SignUpButton"></Button>
+            <Button Content="Регистрация" FontSize="34" Background="White"  FontFamily="Bahnschrift" Height="50" x:Name="SignUpButton" Click="SignUpBtnClick"></Button>
         </StackPanel>
     </Grid>
 </Window>
