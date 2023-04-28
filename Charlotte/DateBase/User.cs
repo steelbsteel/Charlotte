@@ -11,6 +11,8 @@ namespace Charlotte.DateBase
     public class User
     {
         [BsonIgnoreIfNull]
+        public int IdUser { get; set; }
+        [BsonIgnoreIfNull]
         public string Login { get; set; }
         [BsonIgnoreIfNull]
         public string Password { get; set; }
@@ -20,5 +22,7 @@ namespace Charlotte.DateBase
         public byte[] Photo { get; set; }
         [BsonIgnore]
         public User currentUser;
+        [BsonIgnoreIfNull]
+        public int CommentariesCount { get; set; }
     }
 }

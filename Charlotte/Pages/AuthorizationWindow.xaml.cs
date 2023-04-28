@@ -24,7 +24,12 @@ namespace Charlotte
         {
             User user = App.db.CheckUserSignedIn(loginTextBox.Text, passwordBox.Password);
             if (user != null)
+            {
                 MessageBox.Show("Входы был успешно осуществлен", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                var menu = new Menu(user);
+                this.Close();
+                menu.Show();
+            }
             else
                 MessageBox.Show("Вход не был выполнен", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }

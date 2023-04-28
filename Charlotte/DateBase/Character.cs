@@ -10,6 +10,8 @@ namespace Charlotte.DateBase
     public class Character
     {
         [BsonIgnoreIfNull]
+        public int IdCharacter { get; set; }
+        [BsonIgnoreIfNull]
         public string Name { get; set; }
         [BsonIgnoreIfNull]
         public string Description { get; set; }
@@ -19,5 +21,7 @@ namespace Charlotte.DateBase
         public int Age { get; set; }
         [BsonIgnoreIfNull]
         public string Status { get; set; }
+        [BsonIgnoreIfNull]
+        public int CommentarysCount { get; set; }
     }
 }

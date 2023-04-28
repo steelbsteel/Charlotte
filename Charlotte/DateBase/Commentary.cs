@@ -10,12 +10,19 @@ namespace Charlotte.DateBase
     public class Commentary
     {
         [BsonIgnoreIfNull]
+        public int IdCommentary { get; set; }
+        [BsonIgnoreIfNull]
         public string Date { get; set; }
         [BsonIgnoreIfNull]
         public string Description { get; set; }
         [BsonIgnoreIfNull]
         public int idUser { get; set; }
         [BsonIgnoreIfNull]
-        public int idPage { get; set; }
+        public int idCharacter { get; set; }
+        [BsonIgnoreIfNull]
+        public int idSuperPower { get; set; }
+        [BsonIgnoreIfNull]
+        public int idEpisode { get; set; }
+
     }
 }

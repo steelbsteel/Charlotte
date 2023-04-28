@@ -3,11 +3,9 @@ C:\Users\user\source\repos\Charlotte\Charlotte\bin\Debug\Charlotte.exe
 C:\Users\user\source\repos\Charlotte\Charlotte\bin\Debug\Charlotte.pdb
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Charlotte.csproj.AssemblyReference.cache
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Charlotte.csproj.SuggestedBindingRedirects.cache
-C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\AuthorizationWindow.g.cs
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\App.g.cs
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Charlotte_MarkupCompile.cache
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Charlotte_MarkupCompile.lref
-C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\AuthorizationWindow.baml
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Charlotte.g.resources
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Charlotte.Properties.Resources.resources
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Charlotte.csproj.GenerateResource.cache
@@ -69,5 +67,11 @@ C:\Users\user\source\repos\Charlotte\Charlotte\bin\Debug\System.Security.AccessC
 C:\Users\user\source\repos\Charlotte\Charlotte\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\user\source\repos\Charlotte\Charlotte\bin\Debug\System.Text.Encoding.CodePages.xml
 C:\Users\user\source\repos\Charlotte\Charlotte\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\RegistrationWindow.g.cs
-C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\RegistrationWindow.baml
+C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\AuthorizationWindow.g.cs
+C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\Menu.g.cs
+C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\OwnPage.g.cs
+C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\RegistrationWindow.g.cs
+C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\AuthorizationWindow.baml
+C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\Menu.baml
+C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\OwnPage.baml
+C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\RegistrationWindow.baml

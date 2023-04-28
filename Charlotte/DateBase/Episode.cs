@@ -10,8 +10,12 @@ namespace Charlotte.DateBase
     public class Episode
     {
         [BsonIgnoreIfNull]
+        public int IdEpisode { get; set; }
+        [BsonIgnoreIfNull]
         public string Title { get; set; }
         [BsonIgnoreIfNull]
         public string Description { get; set; }
+        [BsonIgnoreIfNull]
+        public int CommentarysCount { get; set; }
     }
 }

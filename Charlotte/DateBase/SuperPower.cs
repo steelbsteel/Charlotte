@@ -10,10 +10,14 @@ namespace Charlotte.DateBase
     public class SuperPower
     {
         [BsonIgnoreIfNull]
+        public int IdSuperPower { get; set; }
+        [BsonIgnoreIfNull]
         public string Name { get; set; }
         [BsonIgnoreIfNull]
         public string Description { get; set; }
         [BsonIgnoreIfNull]
         public byte[] MainImage { get; set; }
+        [BsonIgnoreIfNull]
+        public int CommentarysCount { get; set; }
     }
 }
