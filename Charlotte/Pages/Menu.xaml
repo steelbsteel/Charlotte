@@ -44,6 +44,53 @@
         <TextBlock Grid.Row="2" Text="Герои" FontSize="40" HorizontalAlignment="Center"/>
         <TextBlock Grid.Row="2" Grid.Column="1" Text="Суперспособности" FontSize="40" HorizontalAlignment="Center"/>
         <TextBlock Grid.Row="2" Grid.Column="2" Text="Эпизоды" FontSize="40" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Лучшие статьи" FontSize="40" Background="Black" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Популярные статьи" FontSize="40" Background="Black" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ListView Grid.Row="3" x:Name="bestHeroesList"  d:ItemsSource="{d:SampleData ItemCount=3}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="10">
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" FontSize="20"></TextBlock>
+                            <Separator Width="100" Opacity="0"/>
+                            <Ellipse Width="100" Height="100">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding MainImage}"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </StackPanel>
+                        <Separator Height="5" Opacity="0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView Grid.Row="3" Grid.Column="1" x:Name="bestSuperPowerList"  d:ItemsSource="{d:SampleData ItemCount=3}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="10">
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" FontSize="20"></TextBlock>
+                            <Separator Width="100" Opacity="0"/>
+                            <Ellipse Width="100" Height="100">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding MainImage}"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </StackPanel>
+                        <Separator Height="5" Opacity="0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView Grid.Row="3" Grid.Column="2" x:Name="bestEpisodesList"  d:ItemsSource="{d:SampleData ItemCount=3}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 0">
+                            <TextBlock Text="{Binding Title}" VerticalAlignment="Center" FontSize="20" Margin="0 50 0 0"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>

@@ -1,6 +1,9 @@
 ﻿using Charlotte.DateBase;
 using Microsoft.Win32;
+using MongoDB.Bson;
+using MongoDB.Driver.GridFS;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -51,8 +54,19 @@ namespace Charlotte.Pages
                 return;
             }
 
+                
             App.db.UpdateUserPhoto(File.ReadAllBytes(window.FileName), _user.Login);
             MessageBox.Show("Фотография успешно обновлена");
+            var ownPage = new OwnPage(App.db.GetCurrentUser(_user.Login));
+            this.Close();
+            ownPage.Show();
+            
+        }
+
+        private void ChangePasswordBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var changePasswordWindow = new ChangePassword(_user);
+            changePasswordWindow.ShowDialog();
         }
     }
 }

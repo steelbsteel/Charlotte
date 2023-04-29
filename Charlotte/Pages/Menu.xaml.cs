@@ -27,6 +27,9 @@ namespace Charlotte
         {
             InitializeComponent();
             _user = user;
+            bestHeroesList.ItemsSource = App.db.GetBestCharacters();
+            bestSuperPowerList.ItemsSource = App.db.GetBestSuperpowers();
+            bestEpisodesList.ItemsSource = App.db.GetBestEpisodes();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

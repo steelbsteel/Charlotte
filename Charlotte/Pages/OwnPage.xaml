@@ -30,7 +30,7 @@
                         <ImageBrush ImageSource="{Binding Photo}"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Button Content="Изменить пароль" Margin="30" FontSize="30" Foreground="White" Background="Black"></Button>
+                <Button x:Name="ChangePasswordBtn" Content="Изменить пароль" Margin="30" FontSize="30" Foreground="White" Background="Black" Click="ChangePasswordBtn_Click"></Button>
                 <Button x:Name="ChangePhotoBtn" Content="Изменить фотографию профиля" FontSize="30" Foreground="White"  Background="Black" Margin="30" Click="ChangePhotoBtnClick"></Button>
             </StackPanel>
             <Separator Width="30" Opacity="0"/>

@@ -75,3 +75,5 @@ C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\AuthorizationWind
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\Menu.baml
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\OwnPage.baml
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\RegistrationWindow.baml
+C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\ChangePassword.g.cs
+C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\ChangePassword.baml

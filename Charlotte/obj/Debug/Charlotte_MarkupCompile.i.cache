@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\user\source\repos\Charlotte\Charlotte\App.xaml
-4-1412150256
+6661025429
 25122572
-161985300593
+18172542340
 144-1663879571
-Pages\AuthorizationWindow.xaml;Pages\Menu.xaml;Pages\OwnPage.xaml;Pages\RegistrationWindow.xaml;
+Pages\AuthorizationWindow.xaml;Pages\ChangePassword.xaml;Pages\Characters.xaml;Pages\Menu.xaml;Pages\OwnPage.xaml;Pages\RegistrationWindow.xaml;
 
 True
 

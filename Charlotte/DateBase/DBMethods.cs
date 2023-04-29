@@ -1,8 +1,10 @@
 ﻿using Amazon.Runtime.Documents;
+using Microsoft.Win32;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.GridFS;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,11 +21,19 @@ namespace Charlotte.DateBase
 
         public static MongoClient client = new MongoClient("mongodb://localhost");
         public static IMongoDatabase database = client.GetDatabase("Charlotte");
-
         public User GetCurrentUser(string login)
         {
             var collection = database.GetCollection<User>("Users");
             return collection.Find(x => x.Login == login).First();
+        }
+
+        public void ChangePassword(string login, string password)
+        {
+            var collection = database.GetCollection<User>("Users");
+            User user = GetCurrentUser(login);
+            user.Password = password;
+            var filter = Builders<User>.Filter.Eq("Login", login);
+            collection.ReplaceOne(filter, user);
         }
 
         public void UpdateUserPhoto(byte[] photo, string login)
@@ -145,7 +155,21 @@ namespace Charlotte.DateBase
             List<Character> _characters = collection.Find(x => x.CommentarysCount > 0).ToList();
             return _characters.Distinct().ToList();
         }
-        
+
+        public List<SuperPower> GetBestSuperpowers()
+        {
+            var collection = database.GetCollection<SuperPower>("Superpowers");
+            List<SuperPower> _superPowers = collection.Find(x => x.CommentarysCount > 0).ToList();
+            return _superPowers.Distinct().ToList();
+        }
+
+        public List<Episode> GetBestEpisodes()
+        {
+            var collection = database.GetCollection<Episode>("Episodes");
+            List<Episode> _episodes = collection.Find(x => x.CommentarysCount > 0).ToList();
+            return _episodes.Distinct().ToList();
+        }
+
 
         /*
             public Projector SearchPrjByName(string name)
