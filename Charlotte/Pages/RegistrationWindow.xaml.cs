@@ -27,11 +27,26 @@ namespace Charlotte
         private void SignUpBtnClick(object sender, RoutedEventArgs e)
         {
             bool isExists = App.db.CheckUserExists(loginTextBox.Text);
+
             if (isExists)
                 MessageBox.Show("Такой пользователь уже существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 
             else
             {
+                if ((passwordBox.Password.Contains("") &&
+                    String.IsNullOrWhiteSpace(loginTextBox.Text) &&
+                    String.IsNullOrWhiteSpace(emailTB.Text)))
+                {
+                    MessageBox.Show("Проверьте введенные данные на наличие пустых полей", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                if (!emailTB.Text.Contains("@"))
+                {
+                    MessageBox.Show("Введите E-mail корректно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
                 if (passwordBox.Password == passwordBoxChecker.Password)
                 {
                     App.db.CreateNewUser(loginTextBox.Text, passwordBox.Password, emailTB.Text);
@@ -43,6 +58,13 @@ namespace Charlotte
                 else
                     MessageBox.Show("Проверьте соответствие паролей", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void GoBackBtnClick(object sender, RoutedEventArgs e)
+        {
+            var window = new AuthorizationWindow();
+            this.Close();
+            window.Show();
         }
     }
 }

@@ -1,0 +1,119 @@
+﻿<Window x:Class="Charlotte.Pages.SuperpowerPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Charlotte.Pages"
+        mc:Ignorable="d"
+        Title="SuperpowerPage" Height="720" Width="1280"
+        Loaded="WindowLoaded"
+        WindowState="Maximized">
+    <Window.Background>
+        <ImageBrush TileMode="None">
+            <ImageBrush.ImageSource>
+                <BitmapImage UriSource="C:\\Users\\user\\source\\repos\\Charlotte\\Charlotte\\Images\\MenuBackground.jpg"/>
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition Height="160"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Назад" x:Name="GoBackBtn" Margin="30" FontSize="30" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="GoBackBtnClick"></Button>
+        <StackPanel Grid.Row="1" Background="White">
+            <TextBlock Text="Описание" FontSize="50" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" FontSize="20" ></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+            <TextBlock Text="Изображения" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+            <ListView x:Name="addictionalImagesLV" VerticalAlignment="Bottom" d:ItemsSource="{d:SampleData ItemCount=8}" HorizontalAlignment="Center">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected"
+                         Value="True">
+                                <Setter Property="Background"
+                            Value="Transparent" />
+                                <Setter Property="BorderBrush"
+                            Value="Transparent" />
+                            </Trigger>
+                        </Style.Triggers>
+                        <Setter Property="Focusable" Value="false"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding Photo}" Height="100" Width="150"></Image>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Background="White"/>
+        <StackPanel Grid.Row="2" Background="#FF620039" Orientation="Horizontal">
+            <ListView x:Name="CommentariesList" Background="#FF620039" Height="200" Width="550" HorizontalAlignment="Left" BorderThickness="0" d:ItemsSource="{d:SampleData ItemCount=5}"
+                      ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected"
+                         Value="True">
+                                <Setter Property="Background"
+                            Value="Transparent" />
+                                <Setter Property="BorderBrush"
+                            Value="Transparent" />
+                            </Trigger>
+                        </Style.Triggers>
+                        <Setter Property="Focusable" Value="false"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="10" Background="White">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Date}" Foreground="Black" Margin="0 0 20 0" FontSize="20"></TextBlock>
+                                        <TextBlock Text="{Binding Time}" Foreground="Black" FontSize="20"></TextBlock>
+                                    </StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" Text="{Binding nameUser}" Foreground="Black" Margin="0 10 0 10" FontSize="20"></TextBlock>
+                                </StackPanel>
+                                <TextBlock VerticalAlignment="Center" Text="{Binding Description}" TextWrapping="Wrap" Foreground="Black" FontSize="20" Margin="50 0 0 0" Width="407"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Separator Width="100" Background="Transparent"/>
+            <StackPanel Grid.Row="2" HorizontalAlignment="Right" Margin="10">
+                <TextBox Height="100" Width="300" x:Name="commentaryFormTB"></TextBox>
+                <Button Content="Оставить комментарий" Margin="5" Background="White" FontSize="20" x:Name="createCommentaryBtn" Click="createCommentaryBtnClick"></Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Background="#FF620039">
+            <Border BorderThickness="1">
+                <Image Source="{Binding MainImage}" Height="400" Width="200" Margin="0 30 0 0"></Image>
+            </Border>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" Background="White" Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <TextBlock Text="Название" FontSize="20" Margin="0 10 0 0"></TextBlock>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="{Binding Name}" FontSize="15" Margin="30 10 0 0" TextWrapping="Wrap"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

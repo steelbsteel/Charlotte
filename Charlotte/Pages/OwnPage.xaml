@@ -46,7 +46,7 @@
                 <StackPanel Orientation="Vertical" Margin=" 0 0 0 0">
                     <TextBlock Text="{Binding Login}" FontSize="30" Margin=" 0 20 0 0"></TextBlock>
                     <TextBlock Text="{Binding Email}" FontSize="30" Margin=" 0 20 0 0"></TextBlock>
-                    <TextBlock Text="{Binding CommentariesCount}" FontSize="30" Margin=" 0 20 0 0"></TextBlock>
+                    <TextBlock x:Name="CommentariesCountTB" FontSize="30" Margin=" 0 20 0 0"></TextBlock>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

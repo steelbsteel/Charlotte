@@ -1,0 +1,63 @@
+﻿<Window x:Class="Charlotte.Pages.SuperPowers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Charlotte.Pages"
+        mc:Ignorable="d"
+        Title="SuperPowers"  Height="720" Width="1280"
+        WindowState="Maximized"
+        Loaded="WindowLoaded">
+    <Window.Background>
+        <ImageBrush TileMode="None">
+            <ImageBrush.ImageSource>
+                <BitmapImage UriSource="C:\\Users\\user\\source\\repos\\Charlotte\\Charlotte\\Images\\MenuBackground.jpg"/>
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="Transparent">
+            <TextBlock Text="{Binding Login}" Margin="40" FontSize="40" Background="Black" Foreground="White" PreviewMouseDown="OwnPagePreviewMouseDown"></TextBlock>
+            <Ellipse Width="100" Height="100" MouseDown="OwnPagePreviewMouseDown">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding Photo}"/>
+                </Ellipse.Fill>
+            </Ellipse>
+        </StackPanel>
+        <Button Content="Назад" Margin="30,30,0,30" FontSize="30" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="GoBackBtnCLick" Height="NaN" Width="89"></Button>
+        <StackPanel Grid.Row="1" Background="Black" Height="NaN" Width="NaN"/>
+        <StackPanel Grid.Row="2" Background="White" Height="NaN" Width="NaN"/>
+        <StackPanel Grid.Row="2" Background="White" Height="NaN" Width="NaN"/>
+        <StackPanel Grid.Row="1" Background="Black" Height="NaN" Width="NaN"/>
+        <StackPanel Grid.Row="2" Background="White" Height="NaN" Width="NaN"/>
+        <StackPanel Grid.Row="1" Background="Black" Height="NaN" Width="NaN"/>
+        <TextBlock Grid.Row="1"  Text="Суперспособности" FontSize="40" Background="Black" Foreground="White" HorizontalAlignment="Center" Margin="0 0 0 0" VerticalAlignment="Center" Height="48"/>
+        <Button Grid.Row="1" x:Name="GoToSuperpowerBtn" Click="GoToSuperpowerBtnClick" HorizontalAlignment="Left" Background="White" Foreground="Black" FontSize="20" VerticalAlignment="Center" Width="200" Height="50" Content="Перейти"></Button>
+        <ScrollViewer Grid.Row="2" FlowDirection="RightToLeft" CanContentScroll="False" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left">
+            <ListView  x:Name="SuperpowersList"  d:ItemsSource="{d:SampleData ItemCount=12}" BorderThickness="0" BorderBrush="White">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" Margin="10">
+                                <Ellipse Width="100" Height="100">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="{Binding MainImage}"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <Separator Width="100" Opacity="0"/>
+                                <TextBlock Text="{Binding Name}" VerticalAlignment="Center" FontSize="20" Margin="10"></TextBlock>
+                            </StackPanel>
+                            <Separator Height="5" Opacity="0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+        <Image Source="/Pages/SuperpowersImage.png" Width="813" HorizontalAlignment="Left" Margin="497,38,0,-43" Grid.Row="2"/>
+    </Grid>
+</Window>

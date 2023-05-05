@@ -1,0 +1,25 @@
+﻿<Window x:Class="Charlotte.Pages.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Charlotte.Pages"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <TextBlock Text="Name" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="NameTB" Height="50" Width="700"></TextBox>
+            <TextBlock Text="Description" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="DescriptionTB" Height="50" Width="700"></TextBox>
+            <TextBlock Text="Status" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="StatusTB" Height="50" Width="700"></TextBox>
+            <TextBlock Text="Age" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="AgeTB" Height="50" Width="700"></TextBox>
+            <Button Content="Создать персонажа"></Button>
+            <Button x:Name="CreatePhotoBtn" Content="добавить фото" Click="CreatePhotoBtn_Click"></Button>
+            <Button x:Name="AddictionalPhotoAddBtn" Content="добавить доп фото" Click="AddictionalPhotoAddBtn_Click"></Button>
+            <Button x:Name="GoBackBtn" Content="В меню" Click="GoBackBtn_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

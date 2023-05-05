@@ -22,7 +22,14 @@ namespace Charlotte
 
         private void SignInBtnClick(object sender, RoutedEventArgs e)
         {
+            if (!App.db.CheckUserExists(loginTextBox.Text))
+            {
+                MessageBox.Show("Проверьте правильность введенного логина", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             User user = App.db.CheckUserSignedIn(loginTextBox.Text, passwordBox.Password);
+
             if (user != null)
             {
                 MessageBox.Show("Входы был успешно осуществлен", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);

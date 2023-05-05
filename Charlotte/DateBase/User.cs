@@ -22,7 +22,5 @@ namespace Charlotte.DateBase
         public byte[] Photo { get; set; }
         [BsonIgnore]
         public User currentUser;
-        [BsonIgnoreIfNull]
-        public int CommentariesCount { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Charlotte.DateBase
 {
+    [BsonIgnoreExtraElements]
     public class AddictionalImage
     {
 
@@ -14,6 +15,6 @@ namespace Charlotte.DateBase
         public byte[] Photo { get; set; }
 
         [BsonIgnoreIfNull]
-        public int idPage { get; set; }
+        public string idPage { get; set; }
     }
 }

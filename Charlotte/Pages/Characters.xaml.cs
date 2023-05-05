@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Charlotte.DateBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,44 @@ namespace Charlotte.Pages
     /// </summary>
     public partial class Characters : Window
     {
-        public Characters()
+        User _user;
+        public Characters(User user)
         {
             InitializeComponent();
+            _user = user;
+            CharactersList.ItemsSource = App.db.GetCharacters();
+        }
+
+        private void WindowLoaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = _user;
+        }
+        private void OwnPagePreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var ownPage = new OwnPage(_user);
+            this.Close();
+            ownPage.Show();
+        }
+        private void GoBackBtnCLick(object sender, RoutedEventArgs e)
+        {
+            var main = new Menu(_user);
+            this.Close();
+            main.Show();
+        }
+
+        private void GoToCharacterBtnClick(object sender, RoutedEventArgs e)
+        {
+            if (CharactersList.SelectedItem != null)
+            {
+                Character character = CharactersList.SelectedItem as Character;
+                var window = new CharacterPage(_user, character.IdCharacter, false);
+                window.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Выберите персонажа","Внимание",MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

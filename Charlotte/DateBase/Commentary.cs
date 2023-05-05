@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Charlotte.DateBase
 {
+    [BsonIgnoreExtraElements]
     public class Commentary
     {
         [BsonIgnoreIfNull]
@@ -14,15 +15,18 @@ namespace Charlotte.DateBase
         [BsonIgnoreIfNull]
         public string Date { get; set; }
         [BsonIgnoreIfNull]
+        public string Time { get; set; }
+        [BsonIgnoreIfNull]
         public string Description { get; set; }
         [BsonIgnoreIfNull]
         public int idUser { get; set; }
         [BsonIgnoreIfNull]
-        public int idCharacter { get; set; }
+        public string idCharacter { get; set; }
         [BsonIgnoreIfNull]
-        public int idSuperPower { get; set; }
+        public string idSuperPower { get; set; }
         [BsonIgnoreIfNull]
-        public int idEpisode { get; set; }
-
+        public string idEpisode { get; set; }
+        [BsonIgnoreIfNull]
+        public string nameUser { get; set; }
     }
 }

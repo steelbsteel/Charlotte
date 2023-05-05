@@ -30,6 +30,7 @@ namespace Charlotte.Pages
         {
             InitializeComponent();
             _user = currentUser;
+            CommentariesCountTB.Text = App.db.GetUserCommentaries(_user.Login).ToString();
         }
 
         private void WindowLoaded(object sender, RoutedEventArgs e)
@@ -53,14 +54,12 @@ namespace Charlotte.Pages
                 MessageBox.Show("Изображение не выбрано");
                 return;
             }
-
                 
             App.db.UpdateUserPhoto(File.ReadAllBytes(window.FileName), _user.Login);
             MessageBox.Show("Фотография успешно обновлена");
             var ownPage = new OwnPage(App.db.GetCurrentUser(_user.Login));
             this.Close();
             ownPage.Show();
-            
         }
 
         private void ChangePasswordBtn_Click(object sender, RoutedEventArgs e)

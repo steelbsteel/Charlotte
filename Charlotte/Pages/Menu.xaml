@@ -28,10 +28,11 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Background="Transparent">
+            <Button Content="Выйти" x:Name="BtnExit" Margin="30" FontSize="30" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="BtnExitClick"></Button>
             <TextBlock Text="{Binding Login}" Margin="40" FontSize="40" Background="Black" Foreground="White" PreviewMouseDown="OwnPagePreviewMouseDown"></TextBlock>
             <Ellipse Width="100" Height="100" MouseDown="OwnPagePreviewMouseDown">
                 <Ellipse.Fill>
-                    <ImageBrush ImageSource="{Binding Photo}"/>
+                 <ImageBrush ImageSource="{Binding Photo}"/>
                 </Ellipse.Fill>
             </Ellipse>
         </StackPanel>
@@ -41,11 +42,27 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Background="Black"/>
         <StackPanel Grid.Row="2" Grid.Column="2" Background="White"/>
         <StackPanel Grid.Row="1" Grid.Column="2" Background="Black"/>
-        <TextBlock Grid.Row="2" Text="Герои" FontSize="40" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="Суперспособности" FontSize="40" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Row="2" Grid.Column="2" Text="Эпизоды" FontSize="40" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Популярные статьи" FontSize="40" Background="Black" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <ListView Grid.Row="3" x:Name="bestHeroesList"  d:ItemsSource="{d:SampleData ItemCount=3}">
+        <TextBlock Grid.Row="2" PreviewMouseDown="CharactersWindowOpen" Text="Герои" FontSize="40" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="2" PreviewMouseDown="SuperPowersWindowOpen" Grid.Column="1" Text="Суперспособности" FontSize="40" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="2" PreviewMouseDown="EpisodesWindowOpen" Grid.Column="2" Text="Эпизоды" FontSize="40" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Популярные статьи" FontSize="40" Background="Black" Foreground="White" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ListView Grid.Row="3" x:Name="bestHeroesList"  d:ItemsSource="{d:SampleData ItemCount=3}" MouseDoubleClick="bestHeroesListDoubleClick">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="10">
+                            <TextBlock Text="{Binding IdCharacter}" Visibility="Hidden"></TextBlock>
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" FontSize="20"></TextBlock>
+                            <Separator Width="100" Opacity="0"/>
+                            <Image Width="50" Height="100" Source="{Binding MainImage}"/>
+                        </StackPanel>
+                        <Separator Height="5" Opacity="0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView Grid.Row="3" Grid.Column="1" x:Name="bestSuperPowerList"  MouseDoubleClick="bestSuperPowerListMouseDoubleClick"  d:ItemsSource="{d:SampleData ItemCount=3}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -63,25 +80,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView Grid.Row="3" Grid.Column="1" x:Name="bestSuperPowerList"  d:ItemsSource="{d:SampleData ItemCount=3}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal" Margin="10">
-                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" FontSize="20"></TextBlock>
-                            <Separator Width="100" Opacity="0"/>
-                            <Ellipse Width="100" Height="100">
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="{Binding MainImage}"/>
-                                </Ellipse.Fill>
-                            </Ellipse>
-                        </StackPanel>
-                        <Separator Height="5" Opacity="0"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <ListView Grid.Row="3" Grid.Column="2" x:Name="bestEpisodesList"  d:ItemsSource="{d:SampleData ItemCount=3}">
+        <ListView Grid.Row="3" Grid.Column="2"  MouseDoubleClick="bestEpisodesListMouseDoubleClick"  x:Name="bestEpisodesList"  d:ItemsSource="{d:SampleData ItemCount=3}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -92,5 +91,13 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Подсказка" x:Name="HelpBtn" Margin="30" FontSize="30" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="HelpBtnClick"></Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="1">
+            <Button Content="персонажа" x:Name="CreateCharacter" Margin="30" FontSize="10" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="CreateCharacterBtnClick"></Button>
+            <Button Content="суперспособность" x:Name="CreateSuperPower" Margin="30" FontSize="10" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="CreateSuperPowerClick"></Button>
+            <Button Content="эпизод" x:Name="CreateEpisode" Margin="30" FontSize="10" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="CreateEpisodeClick"></Button>
+        </StackPanel>
     </Grid>
 </Window>

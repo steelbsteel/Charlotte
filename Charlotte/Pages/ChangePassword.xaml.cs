@@ -63,5 +63,10 @@ namespace Charlotte.Pages
             else
                 MessageBox.Show("Проверьте правильность введенного текущего пароля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
+        private void GoBackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

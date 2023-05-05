@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Charlotte.DateBase
 {
+    [BsonIgnoreExtraElements]
     public class Character
     {
         [BsonIgnoreIfNull]
-        public int IdCharacter { get; set; }
+        public string IdCharacter { get; set; }
         [BsonIgnoreIfNull]
         public string Name { get; set; }
         [BsonIgnoreIfNull]
@@ -18,10 +19,8 @@ namespace Charlotte.DateBase
         [BsonIgnoreIfNull]
         public byte[] MainImage { get; set; }
         [BsonIgnoreIfNull]
-        public int Age { get; set; }
+        public string Age { get; set; }
         [BsonIgnoreIfNull]
         public string Status { get; set; }
-        [BsonIgnoreIfNull]
-        public int CommentarysCount { get; set; }
     }
 }

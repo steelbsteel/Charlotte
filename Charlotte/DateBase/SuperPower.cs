@@ -7,17 +7,19 @@ using System.Threading.Tasks;
 
 namespace Charlotte.DateBase
 {
+    [BsonIgnoreExtraElements]
     public class SuperPower
     {
         [BsonIgnoreIfNull]
-        public int IdSuperPower { get; set; }
+        public string IdSuperPower { get; set; }
         [BsonIgnoreIfNull]
         public string Name { get; set; }
         [BsonIgnoreIfNull]
         public string Description { get; set; }
         [BsonIgnoreIfNull]
         public byte[] MainImage { get; set; }
+
         [BsonIgnoreIfNull]
-        public int CommentarysCount { get; set; }
+        public string idCharacter { get; set; }
     }
 }

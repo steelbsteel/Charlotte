@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\user\source\repos\Charlotte\Charlotte\App.xaml
-6661025429
+14-628154665
 25122572
-18172542340
+26-1642120106
 144-1663879571
-Pages\AuthorizationWindow.xaml;Pages\ChangePassword.xaml;Pages\Characters.xaml;Pages\Menu.xaml;Pages\OwnPage.xaml;Pages\RegistrationWindow.xaml;
+Pages\AuthorizationWindow.xaml;Pages\ChangePassword.xaml;Pages\CharacterPage.xaml;Pages\Characters.xaml;Pages\CreateEpisodePage.xaml;Pages\CreateSuperpowerPage.xaml;Pages\EpisodePage.xaml;Pages\Episodes.xaml;Pages\Menu.xaml;Pages\OwnPage.xaml;Pages\RegistrationWindow.xaml;Pages\SuperpowerPage.xaml;Pages\SuperPowers.xaml;Pages\Window1.xaml;
 
 True
 

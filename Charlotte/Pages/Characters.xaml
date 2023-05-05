@@ -6,8 +6,54 @@
         xmlns:local="clr-namespace:Charlotte.Pages"
         mc:Ignorable="d"
         Title="Characters" Height="720" Width="1280"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        Loaded="WindowLoaded">
+    <Window.Background>
+            <ImageBrush TileMode="None">
+                <ImageBrush.ImageSource>
+                    <BitmapImage UriSource="C:\\Users\\user\\source\\repos\\Charlotte\\Charlotte\\Images\\MenuBackground.jpg"/>
+                </ImageBrush.ImageSource>
+            </ImageBrush>
+        </Window.Background>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Background="Transparent">
+            <TextBlock Text="{Binding Login}" Margin="40" FontSize="40" Background="Black" Foreground="White" PreviewMouseDown="OwnPagePreviewMouseDown"></TextBlock>
+            <Ellipse Width="100" Height="100" MouseDown="OwnPagePreviewMouseDown">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding Photo}"/>
+                </Ellipse.Fill>
+            </Ellipse>
+        </StackPanel>
+        <Button Content="Назад" Margin="30" FontSize="30" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="GoBackBtnCLick"></Button>
+        <StackPanel Grid.Row="1" Background="Black"/>
+        <StackPanel Grid.Row="2" Background="White"/>
+        <StackPanel Grid.Row="2" Grid.Column="1" Background="White"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Background="Black"/>
+        <StackPanel Grid.Row="2" Grid.Column="2" Background="White"/>
+        <StackPanel Grid.Row="1" Grid.Column="2" Background="Black"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Персонажи" FontSize="40" Background="Black" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="1" x:Name="GoToCharacterBtn" Click="GoToCharacterBtnClick" HorizontalAlignment="Left" Background="White" Foreground="Black" FontSize="20" VerticalAlignment="Center" Width="200" Height="50" Content="Перейти"></Button>
+        <ListView Grid.Row="3" x:Name="CharactersList"  d:ItemsSource="{d:SampleData ItemCount=3}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="10">
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" FontSize="20"></TextBlock>
+                            <Separator Width="100" Opacity="0"/>
+                            <Image Source="{Binding MainImage}" Height="200" Width="100"/>
+                        </StackPanel>
+                        <Separator Height="5" Opacity="0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Image Source="/Pages/CharactersImage.png" Height="720" Width="1280" />
+        </StackPanel>
     </Grid>
 </Window>

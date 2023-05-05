@@ -28,7 +28,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
+        <Button Content="Назад" x:Name="GoBackBtn" Margin="20" FontSize="30" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="GoBackBtnClick"></Button>
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
             <TextBlock Text="Логин" FontSize="36" FontFamily="Bahnschrift" HorizontalAlignment="Center" Background="Transparent" Foreground="White"></TextBlock>
             <TextBox Height="50" Width="600" x:Name="loginTextBox" FontSize="36" FontFamily="Bahnschrift"/>

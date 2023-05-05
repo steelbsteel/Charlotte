@@ -1,8 +1,17 @@
 ﻿
 FC:\Users\user\source\repos\Charlotte\Charlotte\App.xaml;;
 FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\AuthorizationWindow.xaml;;
+FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\ChangePassword.xaml;;
+FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\CharacterPage.xaml;;
+FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\Characters.xaml;;
+FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\EpisodePage.xaml;;
+FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\Episodes.xaml;;
 FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\Menu.xaml;;
 FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\OwnPage.xaml;;
 FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\RegistrationWindow.xaml;;
-FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\ChangePassword.xaml;;
+FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\SuperpowerPage.xaml;;
+FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\SuperPowers.xaml;;
+FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\Window1.xaml;;
+FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\CreateEpisodePage.xaml;;
+FC:\Users\user\source\repos\Charlotte\Charlotte\Pages\CreateSuperpowerPage.xaml;;
 

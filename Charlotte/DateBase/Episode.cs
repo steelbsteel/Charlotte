@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace Charlotte.DateBase
 {
+    [BsonIgnoreExtraElements]
     public class Episode
     {
         [BsonIgnoreIfNull]
-        public int IdEpisode { get; set; }
+        public string IdEpisode { get; set; }
         [BsonIgnoreIfNull]
         public string Title { get; set; }
         [BsonIgnoreIfNull]
         public string Description { get; set; }
-        [BsonIgnoreIfNull]
-        public int CommentarysCount { get; set; }
     }
 }
