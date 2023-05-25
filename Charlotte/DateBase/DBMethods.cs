@@ -267,7 +267,6 @@ namespace Charlotte.DateBase
                     _bestCharacters.Add(GetCurrentCharacter(comm.idCharacter));
                 }
 
-              
                 return RemoveCharacterDublicatesList(_bestCharacters);
             }
             catch
@@ -302,7 +301,7 @@ namespace Charlotte.DateBase
             {
                 var collection = database.GetCollection<Episode>("Episodes");
                 var _collection = database.GetCollection<Commentary>("Commentaries");
-                List<Commentary> _commentaries = _collection.Find(x => x.idCharacter[0] == 'H').ToList();
+                List<Commentary> _commentaries = _collection.Find(x => x.idEpisode[0] == 'E').ToList();
                 List<Episode> _bestEpisodes = new List<Episode>();
                 foreach (Commentary comm in _commentaries)
                 {
@@ -453,16 +452,23 @@ namespace Charlotte.DateBase
                 var collection = database.GetCollection<SuperPower>("Superpowers");
                 List<SuperPower> superpowers = collection.Find(x => x.idCharacter == idHero).ToList();
                 string superpowersString = string.Empty;
-                foreach (SuperPower superpower in superpowers)
+                if (superpowers.Count > 1)
                 {
-                    superpowersString += superpower.Name + ",";
+                    foreach (SuperPower superpower in superpowers)
+                    {
+                        superpowersString += superpower.Name + ",";
+                    }
+                }
+                else
+                {
+                    return superpowers[0].Name.ToString();
                 }
                 return superpowersString;
             }
 
             catch
             {
-                return "Никаких";
+                return "Отсутствуют";
             }
         }
 
@@ -473,15 +479,16 @@ namespace Charlotte.DateBase
                 !String.IsNullOrWhiteSpace(Description) &&
                 !String.IsNullOrWhiteSpace(Status))
             {
-                char id;
+                int id = 0;
                 Character _character = new Character();
                 Character character = new Character();
 
                 try
                 {
                     _character = collection.Find(new BsonDocument()).ToList().Last();
-                    id = Convert.ToChar(Convert.ToInt32(_character.IdCharacter[1]) + 1);
-                    character.IdCharacter = "H" + id;
+                    id = Convert.ToInt32((_character.IdCharacter).ToString().Substring(1));
+                    id++;
+                    character.IdCharacter = "H" + id.ToString();
                 }
                 catch
                 {
@@ -503,21 +510,37 @@ namespace Charlotte.DateBase
                 return;
             }
         }
+
+        public SuperPower SearchSuperPower(string Name)
+        {
+            var collection = database.GetCollection<SuperPower>("Superpowers");
+            return collection.Find(x => x.Name == Name).First();
+
+        }
+
+        public string SearchIdCharacterBySuperpower(string idSuperpower)
+        {
+            var collection = database.GetCollection<SuperPower>("Superpowers");
+            return collection.Find(x => x.IdSuperPower == idSuperpower).First().idCharacter;
+
+        }
+
         public void CreateNewEpisode(string Title, string Description, List<byte[]> imgs)
         {
             var collection = database.GetCollection<Episode>("Episodes");
             if (!String.IsNullOrWhiteSpace(Title) &&
                 !String.IsNullOrWhiteSpace(Description))
             {
-                char id;
+                int id;
                 Episode _episode = new Episode();
                 Episode episode = new Episode();
 
                 try
                 {
                     _episode = collection.Find(new BsonDocument()).ToList().Last();
-                    id = Convert.ToChar(Convert.ToInt32(_episode.IdEpisode[1]) + 1);
-                    episode.IdEpisode = "E" + id;
+                    id = Convert.ToInt32((_episode.IdEpisode).ToString().Substring(1));
+                    id++;
+                    episode.IdEpisode = "E" + id.ToString();
                 }
                 catch
                 {
@@ -544,15 +567,15 @@ namespace Charlotte.DateBase
             if (!String.IsNullOrWhiteSpace(Name) &&
                 !String.IsNullOrWhiteSpace(Description))
             {
-                char id;
+                int id = 0;
                 SuperPower _superPower = new SuperPower();
                 SuperPower superPower = new SuperPower();
-
                 try
                 {
                     _superPower = collection.Find(new BsonDocument()).ToList().Last();
-                    id = Convert.ToChar(Convert.ToInt32(superPower.IdSuperPower[1]) + 1);
-                    superPower.IdSuperPower = "S" + id;
+                    id = Convert.ToInt32((_superPower.IdSuperPower).ToString().Substring(1));
+                    id++;
+                    superPower.IdSuperPower = "S" + id.ToString();
                 }
                 catch
                 {

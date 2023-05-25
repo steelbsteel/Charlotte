@@ -30,37 +30,6 @@
             <TextBlock Text="Описание" FontSize="50" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
             <TextBlock Text="{Binding Description}" TextWrapping="Wrap" FontSize="20" ></TextBlock>
         </StackPanel>
-        <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
-            <TextBlock Text="Изображения" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
-            <ListView x:Name="addictionalImagesLV" VerticalAlignment="Bottom" d:ItemsSource="{d:SampleData ItemCount=8}" HorizontalAlignment="Center">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Style.Triggers>
-                            <Trigger Property="IsSelected"
-                         Value="True">
-                                <Setter Property="Background"
-                            Value="Transparent" />
-                                <Setter Property="BorderBrush"
-                            Value="Transparent" />
-                            </Trigger>
-                        </Style.Triggers>
-                        <Setter Property="Focusable" Value="false"/>
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="{Binding Photo}" Height="100" Width="150"></Image>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Background="White"/>
         <StackPanel Grid.Row="2" Background="#FF620039" Orientation="Horizontal">
             <ListView x:Name="CommentariesList" Background="#FF620039" Height="200" Width="550" HorizontalAlignment="Left" BorderThickness="0" d:ItemsSource="{d:SampleData ItemCount=5}"

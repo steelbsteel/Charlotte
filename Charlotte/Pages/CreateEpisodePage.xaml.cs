@@ -33,15 +33,6 @@ namespace Charlotte.Pages
 
         private void CreatePhotoBtn_Click(object sender, RoutedEventArgs e)
         {
-            var window = new OpenFileDialog();
-
-            if (window.ShowDialog() != true)
-            {
-                MessageBox.Show("Изображение не выбрано");
-                return;
-            }
-
-            MessageBox.Show("Фотография успешно обновлена");
             try
             {
                 App.db.CreateNewEpisode(TitleTB.Text, DescriptionTB.Text, _images);

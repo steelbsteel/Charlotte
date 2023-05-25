@@ -26,9 +26,10 @@
         </Grid.ColumnDefinitions>
         <Button Content="Назад" x:Name="GoBackBtn" Margin="30" FontSize="30" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="GoBackBtnClick"></Button>
         <StackPanel Grid.Row="1" Background="White">
-            <TextBlock Text="Описание" FontSize="50" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
-            <TextBlock Text="{Binding Title}"  FontSize="30" Margin="0 10 0 10" HorizontalAlignment="Center" FontWeight="Bold" ></TextBlock>
-            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" FontSize="20" ></TextBlock>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="{Binding Title}" FontSize="50" Margin="0 10 0 10" HorizontalAlignment="Center" FontWeight="Bold" ></TextBlock>
+                <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Margin="10" FontSize="20" ></TextBlock>
+            </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
             <TextBlock Text="Изображения" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>

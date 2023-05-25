@@ -54,8 +54,7 @@ namespace Charlotte
         private void HelpBtnClick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Это приложение - энциклопедия по аниме Шарлотта.\n" +
-                            "На данной странице собраны популярные статьи из энциклопедии (наиболее комментируемые), нажав на определенный элемент из списков, вы можете перейти на данную статью. \n" +
-                            "Нажав на надпись со своим логином или по картинке профиля, вы можете перейти в свой профиль. \n" +
+                            "На данной странице собраны популярные статьи из энциклопедии (наиболее комментируемые), нажав на определенный элемент из трех списков, вы можете перейти на статью c соответствующим названием. \n" +
                             "Нажав на надписи Герои, Суперспособности, Эпизоды - вы можете перейти на соответствующий раздел со статьями. ", "Помощь", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -107,7 +106,7 @@ namespace Charlotte
             try
             {
                 SuperPower superPower = bestSuperPowerList.SelectedItem as SuperPower;
-                var window = new CharacterPage(_user, superPower.IdSuperPower, true);
+                var window = new SuperpowerPage(_user, superPower.IdSuperPower, true, false, false);
                 this.Close();
                 window.Show();
             }
@@ -122,7 +121,7 @@ namespace Charlotte
             try
             {
                 Episode episode = bestEpisodesList.SelectedItem as Episode;
-                var window = new CharacterPage(_user, episode.IdEpisode, true);
+                var window = new EpisodePage(_user, episode.IdEpisode, true);
                 this.Close();
                 window.Show();
             }

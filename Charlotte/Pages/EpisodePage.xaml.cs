@@ -52,7 +52,7 @@ namespace Charlotte.Pages
             {
                 App.db.CreateCommentary(_user.Login, commentaryFormTB.Text, _idEpisode);
                 MessageBox.Show("Комментарий успешно оставлен", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                var window = new CharacterPage(_user, _idEpisode, _isMenuPrevious);
+                var window = new EpisodePage(_user, _idEpisode, _isMenuPrevious);
                 this.Close();
                 window.Show();
             }

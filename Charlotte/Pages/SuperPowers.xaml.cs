@@ -50,7 +50,7 @@ namespace Charlotte.Pages
             if (SuperpowersList.SelectedItem != null)
             {
                 SuperPower character = SuperpowersList.SelectedItem as SuperPower;
-                var window = new CharacterPage(_user, character.IdSuperPower, false);
+                var window = new SuperpowerPage(_user, character.IdSuperPower, false, false, false);
                 window.Show();
                 this.Close();
             }
@@ -58,6 +58,20 @@ namespace Charlotte.Pages
             {
                 MessageBox.Show("Выберите суперспособность", "Внимание", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+        private void SearchSuperpowers()
+        {
+            if (SuperpowersList == null)
+            {
+                return;
+            }
+
+            SuperpowersList.ItemsSource = App.db.GetSuperPowers().Where(x => x.Name.ToLower().Contains(SearchTB.Text.ToLower())).ToList();
+        }
+
+        private void SearchTBTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchSuperpowers();
         }
     }
 }

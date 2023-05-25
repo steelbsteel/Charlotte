@@ -80,5 +80,21 @@ namespace Charlotte.Pages
                 this.Close();
             }
         }
+
+        private void SuperPowersTBPreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (SuperPowersTB.Text == "Отсутствуют")
+            {
+                MessageBox.Show("У персонажа нет суперспособностей", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                string name = SuperPowersTB.Text;
+                SuperPower power = App.db.SearchSuperPower(name);
+                var window = new SuperpowerPage(_user, power.IdSuperPower, false, true, _isMenuPrevious);
+                this.Close();
+                window.Show();
+            }
+        }
     }
 }

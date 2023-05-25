@@ -23,22 +23,18 @@ namespace Charlotte.Pages
         string _idSuperpower;
         User _user;
         bool _isMenuPrevious;
-        public SuperpowerPage(User user, string idSuperpower, bool isMenuPrevious)
+        bool _isCharacterPrevious;
+        bool _isCharacterMenuPrevious;
+        public SuperpowerPage(User user, string idSuperpower, bool isMenuPrevious, bool isCharacterPrevious, bool isCharacterMenuPrevious)
         {
             InitializeComponent();
             _user = user;
             _idSuperpower = idSuperpower;
             List<Commentary> comments = App.db.GetCurrentSuperPowerCommentaries(_idSuperpower);
-            try
-            {
-                addictionalImagesLV.ItemsSource = App.db.GetCurrentPageAddictionalImages(idSuperpower);
-            }
-            catch
-            {
-                return;
-            }
             CommentariesList.ItemsSource = comments;
             _isMenuPrevious = isMenuPrevious;
+            _isCharacterPrevious = isCharacterPrevious;
+            _isCharacterMenuPrevious = isCharacterMenuPrevious;
         }
 
         private void WindowLoaded(object sender, RoutedEventArgs e)
@@ -52,7 +48,7 @@ namespace Charlotte.Pages
             {
                 App.db.CreateCommentary(_user.Login, commentaryFormTB.Text, _idSuperpower);
                 MessageBox.Show("Комментарий успешно оставлен", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                var window = new SuperpowerPage(_user, _idSuperpower, _isMenuPrevious);
+                var window = new SuperpowerPage(_user, _idSuperpower, _isMenuPrevious, _isCharacterPrevious, _isCharacterMenuPrevious);
                 this.Close();
                 window.Show();
             }
@@ -65,12 +61,22 @@ namespace Charlotte.Pages
 
         private void GoBackBtnClick(object sender, RoutedEventArgs e)
         {
+            if (_isCharacterPrevious)
+            {
+                var window = new CharacterPage(_user, App.db.SearchIdCharacterBySuperpower(_idSuperpower), _isCharacterMenuPrevious);
+                this.Close();
+                window.Show();
+                return;
+            }
+
             if (_isMenuPrevious)
             {
                 var menuWindow = new Menu(_user);
                 this.Close();
                 menuWindow.Show();
+                return;
             }
+
             else
             {
                 var window = new SuperPowers(_user);

@@ -59,5 +59,20 @@ namespace Charlotte.Pages
                 MessageBox.Show("Выберите персонажа","Внимание",MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void SearchCharacters()
+        {
+            if (CharactersList == null)
+            {
+                return;
+            }
+
+            CharactersList.ItemsSource = App.db.GetCharacters().Where(x => x.Name.ToLower().Contains(SearchTB.Text.ToLower())).ToList();
+        }
+
+        private void SearchTBTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchCharacters();
+        }
     }
 }

@@ -27,6 +27,7 @@ namespace Charlotte.Pages
         public CreateSuperpowerPage(User user)
         {
             InitializeComponent();
+            CharactersListView.ItemsSource = App.db.GetCharacters();
             _user = user;
         }
 

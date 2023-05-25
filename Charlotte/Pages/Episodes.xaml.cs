@@ -49,8 +49,8 @@ namespace Charlotte.Pages
         {
             if (EpisodesList.SelectedItem != null)
             {
-                Episode character = EpisodesList.SelectedItem as Episode;
-                var window = new CharacterPage(_user, character.IdEpisode, false);
+                Episode episode = EpisodesList.SelectedItem as Episode;
+                var window = new EpisodePage(_user, episode.IdEpisode, false);
                 window.Show();
                 this.Close();
             }
@@ -58,6 +58,20 @@ namespace Charlotte.Pages
             {
                 MessageBox.Show("Выберите эпизод", "Внимание", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+        private void SearchEpisodes()
+        {
+            if (EpisodesList == null)
+            {
+                return;
+            }
+
+            EpisodesList.ItemsSource = App.db.GetEpisodes().Where(x => x.Title.ToLower().Contains(SearchTB.Text.ToLower())).ToList();
+        }
+
+        private void SearchTBTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchEpisodes();
         }
     }
 }

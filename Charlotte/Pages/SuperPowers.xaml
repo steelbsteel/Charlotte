@@ -30,12 +30,16 @@
             </Ellipse>
         </StackPanel>
         <Button Content="Назад" Margin="30,30,0,30" FontSize="30" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="GoBackBtnCLick" Height="NaN" Width="89"></Button>
-        <StackPanel Grid.Row="1" Background="Black" Height="NaN" Width="NaN"/>
-        <StackPanel Grid.Row="2" Background="White" Height="NaN" Width="NaN"/>
-        <StackPanel Grid.Row="2" Background="White" Height="NaN" Width="NaN"/>
-        <StackPanel Grid.Row="1" Background="Black" Height="NaN" Width="NaN"/>
-        <StackPanel Grid.Row="2" Background="White" Height="NaN" Width="NaN"/>
-        <StackPanel Grid.Row="1" Background="Black" Height="NaN" Width="NaN"/>
+        <StackPanel Grid.Row="1" Background="Black"/>
+        <StackPanel Grid.Row="2" Background="White"/>
+        <StackPanel Grid.Row="2" Background="White"/>
+        <StackPanel Grid.Row="1" Background="Black"/>
+        <StackPanel Grid.Row="2" Background="White"/>
+        <StackPanel Grid.Row="1" Background="Black"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+            <TextBlock  Text="Поиск" FontSize="30" Margin="100 0 0 0" Background="Black" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox x:Name="SearchTB" FontSize="30" VerticalAlignment="Center" FontFamily="Bahnschrift" Width="300" Margin="30 10 10 10" TextChanged="SearchTBTextChanged" ></TextBox>
+        </StackPanel>
         <TextBlock Grid.Row="1"  Text="Суперспособности" FontSize="40" Background="Black" Foreground="White" HorizontalAlignment="Center" Margin="0 0 0 0" VerticalAlignment="Center" Height="48"/>
         <Button Grid.Row="1" x:Name="GoToSuperpowerBtn" Click="GoToSuperpowerBtnClick" HorizontalAlignment="Left" Background="White" Foreground="Black" FontSize="20" VerticalAlignment="Center" Width="200" Height="50" Content="Перейти"></Button>
         <ScrollViewer Grid.Row="2" FlowDirection="RightToLeft" CanContentScroll="False" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left">
@@ -44,7 +48,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal" Margin="10">
-                                <Ellipse Width="100" Height="100">
+                                <Ellipse Width="150" Height="100">
                                     <Ellipse.Fill>
                                         <ImageBrush ImageSource="{Binding MainImage}"/>
                                     </Ellipse.Fill>

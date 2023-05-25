@@ -40,7 +40,7 @@
             <PasswordBox Height="50" Width="600" x:Name="passwordBoxChecker" FontSize="36" />
             <Separator Opacity="0" Height="20"/>
             <TextBlock Text="Email" FontSize="36" FontFamily="Bahnschrift" HorizontalAlignment="Center" Background="Transparent" Foreground="White"></TextBlock>
-            <TextBox Height="50" Width="600" x:Name="emailTB" FontSize="36" />
+            <TextBox Height="50" Width="600" FontFamily="Bahnschrift" x:Name="emailTB" FontSize="36" />
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Content="Зарегистрироваться" FontSize="34" Background="White"  FontFamily="Bahnschrift" Height="50" x:Name="SignUpButton" Click="SignUpBtnClick"></Button>

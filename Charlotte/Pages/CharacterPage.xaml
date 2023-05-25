@@ -108,18 +108,22 @@
                 <Image Source="{Binding MainImage}" Height="400" Width="200" Margin="0 30 0 0"></Image>
             </Border>
         </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="1" Background="White" Orientation="Horizontal">
-            <StackPanel Orientation="Vertical">
+        <StackPanel Grid.Row="2" Grid.Column="1" Background="White" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Имя" FontSize="15" Margin="0 10 0 0"></TextBlock>
-                <TextBlock Text="Статус" FontSize="15" Margin="0 10 0 0"></TextBlock>
-                <TextBlock Text="Возраст" FontSize="15" Margin="0 10 0 0"></TextBlock>
-                <TextBlock Text="Суперспособности" FontSize="15" Margin="0 10 0 0"></TextBlock>
-                <TextBlock x:Name="SuperPowersTB" FontSize="15" Foreground="Red" Margin="0 10 0 0"></TextBlock>
+                <TextBlock Text="{Binding Name}" FontSize="15" Margin="60 10 0 0"></TextBlock>
             </StackPanel>
-            <StackPanel>
-                <TextBlock Text="{Binding Name}" FontSize="15" Margin="0 10 0 0"></TextBlock>
-                <TextBlock Text="{Binding Status}" FontSize="15" Margin="0 10 0 0"></TextBlock>
-                <TextBlock Text="{Binding Age}" FontSize="15" Margin="0 10 0 0"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Статус" FontSize="15" Margin="0 10 0 0"></TextBlock>
+                <TextBlock Text="{Binding Status}" FontSize="15" Margin="60 10 0 0"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Возраст" FontSize="15" Margin="0 10 0 0"></TextBlock>
+                <TextBlock Text="{Binding Age}" FontSize="15" Margin="60  10 0 0"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Суперспособности" FontSize="15" Margin="0 10 0 0"></TextBlock>
+                <TextBlock x:Name="SuperPowersTB" TextWrapping="Wrap" FontSize="15" Foreground="Red" PreviewMouseDown="SuperPowersTBPreviewMouseDown" Margin="0 10 0 0"></TextBlock>
             </StackPanel>
         </StackPanel>
     </Grid>
