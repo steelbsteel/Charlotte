@@ -85,13 +85,11 @@ C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\Episodes.baml
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\SuperPowers.baml
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\CharacterPage.g.cs
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\EpisodePage.g.cs
-C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\Window1.g.cs
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\CharacterPage.baml
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\EpisodePage.baml
-C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\Window1.baml
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\SuperpowerPage.g.cs
 C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\SuperpowerPage.baml
-C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\CreateEpisodePage.g.cs
-C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\CreateSuperpowerPage.g.cs
-C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\CreateEpisodePage.baml
-C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Pages\CreateSuperpowerPage.baml
+C:\Users\user\source\repos\Charlotte\Charlotte\bin\Debug\Charlotte.exe.manifest
+C:\Users\user\source\repos\Charlotte\Charlotte\bin\Debug\Charlotte.application
+C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Charlotte.exe.manifest
+C:\Users\user\source\repos\Charlotte\Charlotte\obj\Debug\Charlotte.application

@@ -10,7 +10,6 @@ namespace Charlotte.DateBase
     [BsonIgnoreExtraElements]
     public class AddictionalImage
     {
-
         [BsonIgnoreIfNull]
         public byte[] Photo { get; set; }
 

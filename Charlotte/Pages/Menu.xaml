@@ -94,10 +94,5 @@
         <StackPanel Orientation="Horizontal">
             <Button Content="Подсказка" x:Name="HelpBtn" Margin="30" FontSize="30" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="HelpBtnClick"></Button>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Column="1">
-            <Button Content="персонажа" x:Name="CreateCharacter" Margin="30" FontSize="10" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="CreateCharacterBtnClick"></Button>
-            <Button Content="суперспособность" x:Name="CreateSuperPower" Margin="30" FontSize="10" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="CreateSuperPowerClick"></Button>
-            <Button Content="эпизод" x:Name="CreateEpisode" Margin="30" FontSize="10" Foreground="White" Background="Black" HorizontalAlignment="Left" Click="CreateEpisodeClick"></Button>
-        </StackPanel>
     </Grid>
 </Window>

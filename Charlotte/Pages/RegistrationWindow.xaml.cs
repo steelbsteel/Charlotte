@@ -37,7 +37,7 @@ namespace Charlotte
                     String.IsNullOrWhiteSpace(loginTextBox.Text) &&
                     String.IsNullOrWhiteSpace(emailTB.Text)))
                 {
-                    MessageBox.Show("Проверьте введенные данные на наличие пустых полей", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Пожалуйста, заполните все данные", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 

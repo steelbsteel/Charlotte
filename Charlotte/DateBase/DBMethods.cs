@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -37,22 +38,22 @@ namespace Charlotte.DateBase
             return collection.Find(x => x.IdUser == id).First();
         }
 
-        public void ChangePassword(string login, string password)
+        public async Task ChangePassword(string login, string password)
         {
             var collection = database.GetCollection<User>("Users");
             User user = GetCurrentUser(login);
             user.Password = password;
             var filter = Builders<User>.Filter.Eq("Login", login);
-            collection.ReplaceOne(filter, user);
+            await collection.ReplaceOneAsync(filter, user);
         }
 
-        public void UpdateUserPhoto(byte[] photo, string login)
+        public async Task UpdateUserPhoto(byte[] photo, string login)
         {
             var collection = database.GetCollection<User>("Users");
             User user = GetCurrentUser(login);
             user.Photo = photo;
             var filter = Builders<User>.Filter.Eq("Login", login);
-            collection.ReplaceOne(filter, user);
+            await collection.ReplaceOneAsync(filter, user);
         }
         public int GetUserCommentaries(string login)
         {
@@ -74,7 +75,7 @@ namespace Charlotte.DateBase
         public List<AddictionalImage> GetCurrentPageAddictionalImages(string idPage)
         {
             try
-            { 
+            {
                 var collection = database.GetCollection<AddictionalImage>("AddictionalImages");
                 return collection.Find(x => x.idPage == idPage).ToList();
             }
@@ -103,15 +104,6 @@ namespace Charlotte.DateBase
             return list;
         }
 
-        public void CreateAddictionalImage(string idPage, byte[] image)
-        {
-            AddictionalImage addictionalImage = new AddictionalImage();
-            addictionalImage.idPage = idPage;
-            addictionalImage.Photo = image;
-            var collection = database.GetCollection<AddictionalImage>("AddictionalImages");
-            collection.InsertOne(addictionalImage);
-        }
-
         public User CheckUserSignedIn(string login, string passoword)
         {
             var collection = database.GetCollection<User>("Users");
@@ -137,7 +129,7 @@ namespace Charlotte.DateBase
             return null;
         }
 
-        public void CreateNewUser(string login, string password, string email)
+        public async Task CreateNewUser(string login, string password, string email)
         {
             var collection = database.GetCollection<User>("Users");
             User user = new User();
@@ -161,15 +153,14 @@ namespace Charlotte.DateBase
             user.Email = email;
             user.Password = password;
             user.Login = login;
-            collection.InsertOne(user);
-            
+            await  collection.InsertOneAsync(user);
         }
 
         public bool CheckUserExists(string login)
         {
             var collection = database.GetCollection<User>("Users");
 
-                User user = collection.Find(x => x.Login == login).FirstOrDefault();
+            User user = collection.Find(x => x.Login == login).FirstOrDefault();
             if (user != null)
             {
                 return true;
@@ -183,18 +174,15 @@ namespace Charlotte.DateBase
             List<Character> result = new List<Character>();
             for (int i = 0; i < items.Count; i++)
             {
-                // Assume not duplicate.
                 bool duplicate = false;
                 for (int z = 0; z < i; z++)
                 {
                     if (items[z].IdCharacter == items[i].IdCharacter)
                     {
-                        // This is a duplicate.
                         duplicate = true;
                         break;
                     }
                 }
-                // If not duplicate, add to result.
                 if (!duplicate)
                 {
                     result.Add(items[i]);
@@ -355,7 +343,7 @@ namespace Charlotte.DateBase
             }
         }
 
-        public void CreateCommentary(string login, string description, string idPage)
+        public async Task CreateCommentary(string login, string description, string idPage)
         {
             var collection = database.GetCollection<Commentary>("Commentaries");
             Commentary commentary = new Commentary();
@@ -395,7 +383,7 @@ namespace Charlotte.DateBase
             }
 
             commentary.IdCommentary = idComm;
-            collection.InsertOne(commentary);
+            await collection.InsertOneAsync(commentary);
         }
 
         public string GetIdPage(string name)
@@ -472,45 +460,6 @@ namespace Charlotte.DateBase
             }
         }
 
-        public void CreateNewCharacter(string Name, string Age, string Description, string Status, byte[] Photo, List<byte[]> imgs)
-        {
-            var collection = database.GetCollection<Character>("Characters");
-            if (!String.IsNullOrWhiteSpace(Name) &&
-                !String.IsNullOrWhiteSpace(Description) &&
-                !String.IsNullOrWhiteSpace(Status))
-            {
-                int id = 0;
-                Character _character = new Character();
-                Character character = new Character();
-
-                try
-                {
-                    _character = collection.Find(new BsonDocument()).ToList().Last();
-                    id = Convert.ToInt32((_character.IdCharacter).ToString().Substring(1));
-                    id++;
-                    character.IdCharacter = "H" + id.ToString();
-                }
-                catch
-                {
-                    character.IdCharacter = "H0";
-                }
-
-                character.Name = Name;
-                character.Description = Description;
-                character.Status = Status;
-                character.MainImage = Photo;
-                character.Age = Age;
-                collection.InsertOne(character);
-
-                foreach (byte[] img in imgs)
-                {
-                    CreateAddictionalImage(character.IdCharacter, img);
-                }
-
-                return;
-            }
-        }
-
         public SuperPower SearchSuperPower(string Name)
         {
             var collection = database.GetCollection<SuperPower>("Superpowers");
@@ -523,72 +472,6 @@ namespace Charlotte.DateBase
             var collection = database.GetCollection<SuperPower>("Superpowers");
             return collection.Find(x => x.IdSuperPower == idSuperpower).First().idCharacter;
 
-        }
-
-        public void CreateNewEpisode(string Title, string Description, List<byte[]> imgs)
-        {
-            var collection = database.GetCollection<Episode>("Episodes");
-            if (!String.IsNullOrWhiteSpace(Title) &&
-                !String.IsNullOrWhiteSpace(Description))
-            {
-                int id;
-                Episode _episode = new Episode();
-                Episode episode = new Episode();
-
-                try
-                {
-                    _episode = collection.Find(new BsonDocument()).ToList().Last();
-                    id = Convert.ToInt32((_episode.IdEpisode).ToString().Substring(1));
-                    id++;
-                    episode.IdEpisode = "E" + id.ToString();
-                }
-                catch
-                {
-                    episode.IdEpisode = "E0";
-                }
-
-                episode.Title = Title;
-                episode.Description = Description;
-
-                collection.InsertOne(episode);
-
-                foreach (byte[] img in imgs)
-                {
-                    CreateAddictionalImage(episode.IdEpisode, img);
-                }
-
-                return;
-            }
-        }
-
-        public void CreateNewSuperPower(string Name, string Description, byte[] Photo, string idCharacter)
-        {
-            var collection = database.GetCollection<SuperPower>("Superpowers");
-            if (!String.IsNullOrWhiteSpace(Name) &&
-                !String.IsNullOrWhiteSpace(Description))
-            {
-                int id = 0;
-                SuperPower _superPower = new SuperPower();
-                SuperPower superPower = new SuperPower();
-                try
-                {
-                    _superPower = collection.Find(new BsonDocument()).ToList().Last();
-                    id = Convert.ToInt32((_superPower.IdSuperPower).ToString().Substring(1));
-                    id++;
-                    superPower.IdSuperPower = "S" + id.ToString();
-                }
-                catch
-                {
-                    superPower.IdSuperPower = "S0";
-                }
-
-                superPower.Name = Name;
-                superPower.Description = Description;
-                superPower.idCharacter = idCharacter;
-                superPower.MainImage = Photo;
-                collection.InsertOne(superPower);
-                return;
-            }
         }
     }
 }

@@ -58,13 +58,6 @@ namespace Charlotte
                             "Нажав на надписи Герои, Суперспособности, Эпизоды - вы можете перейти на соответствующий раздел со статьями. ", "Помощь", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private void CreateCharacterBtnClick(object sender, RoutedEventArgs e)
-        {
-            var window = new Window1(_user);
-            window.Show();
-            this.Close();
-        }
-
         private void bestHeroesListDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try
@@ -129,20 +122,6 @@ namespace Charlotte
             {
                 return;
             }
-        }
-
-        private void CreateSuperPowerClick(object sender, RoutedEventArgs e)
-        {
-            var window = new CreateSuperpowerPage(_user);
-            this.Close();
-            window.Show();
-        }
-
-        private void CreateEpisodeClick(object sender, RoutedEventArgs e)
-        {
-            var window = new CreateEpisodePage(_user);
-            this.Close();
-            window.Show();
         }
     }
 }
